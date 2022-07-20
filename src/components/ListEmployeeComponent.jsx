@@ -21,7 +21,7 @@ class ListEmployeeComponent extends Component {
             <div>
                 <h2 className='text-center'>Employee List</h2>
                 <div className='row'>
-                <table class="table">
+                <table className='table table-bordered'>
                     <thead>
                         <tr>
                             <th scope="col">Employee First Name</th>
@@ -31,12 +31,6 @@ class ListEmployeeComponent extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>First</th>
-                            <td>Last</td>
-                            <td>firstLast@gmail.com</td>
-                            <td>Action</td>
-                        </tr>
                         {
                             this.state.employees.map(
                                 employee =>
