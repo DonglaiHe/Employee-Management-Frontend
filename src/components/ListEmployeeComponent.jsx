@@ -8,6 +8,8 @@ class ListEmployeeComponent extends Component {
         this.state = {
             employees: []
         }
+
+        this.addEmployee = this.addEmployee.bind(this)
     }
 
     componentDidMount() {
@@ -16,32 +18,40 @@ class ListEmployeeComponent extends Component {
             console.log(res.data)
         })
     }
+
+    addEmployee() {
+        this.props.history.push('createEmployees')
+    }
+
     render() {
         return (
             <div>
                 <h2 className='text-center'>Employee List</h2>
                 <div className='row'>
-                <table className='table table-bordered'>
-                    <thead>
-                        <tr>
-                            <th scope="col">Employee First Name</th>
-                            <th scope="col">Employee Last Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            this.state.employees.map(
-                                employee =>
-                                <tr>
-                                    <td> { employee.firstName } </td>
-                                    <td> { employee.lastName } </td>
-                                    <td> { employee.email } </td>
-                                </tr>
-                            )
-                        }
-                    </tbody>
+                    <button className='btn btn-primary' onClick={this.addEmployee}> Add Employee </button>
+                </div>
+                <div className='row'>
+                    <table className='table table-striped table-bordered'>
+                        <thead>
+                            <tr>
+                                <th scope="col">Employee First Name</th>
+                                <th scope="col">Employee Last Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                this.state.employees.map(
+                                    employee =>
+                                    <tr>
+                                        <td> { employee.firstName } </td>
+                                        <td> { employee.lastName } </td>
+                                        <td> { employee.email } </td>
+                                    </tr>
+                                )
+                            }
+                        </tbody>
                     </table>
                 </div>
             </div>
